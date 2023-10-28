@@ -62,7 +62,7 @@ function AdminLayout() {
   const [adminLogged, setadminLogged] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    setadminLogged()
+    setadminLogged();
     localStorage.setItem("token", adminLogged);
   }, [adminLogged]);
 
@@ -89,7 +89,7 @@ function AdminLayout() {
             <div className="main_content_div">
               <Routes>
                 <Route element={<AuthWrapper />}>
-                  <Route path="/" element={<Dashboard />} />
+                  <Route path="/admin" element={<Dashboard />} />
                   <Route path="/vendorupdate" element={<VendorUpdate />} />
                   <Route path="/product" element={<Product />} />
                   <Route path="/orders" element={<Orders />} />

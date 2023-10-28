@@ -32,16 +32,10 @@ const CategoryReport = () => {
 
   const [previousStateChange, setpreviousStateChange] = useState(" ");
   const [prevFromdate, setprevFromdate] = useState(
-    moment()
-      .subtract(1, "days")
-      .startOf("days")
-      .format("YYYY-MM-DD")
+    moment().subtract(1, "days").startOf("days").format("YYYY-MM-DD")
   );
   const [prevTodate, setprevTodate] = useState(
-    moment()
-      .subtract(1, "days")
-      .startOf("days")
-      .format("YYYY-MM-DD")
+    moment().subtract(1, "days").startOf("days").format("YYYY-MM-DD")
   );
   const [fromDate, setFromDate] = useState(moment().format("YYYY-MM-DD"));
   const [toDate, setToDate] = useState(moment().format("YYYY-MM-DD"));
@@ -181,10 +175,7 @@ const CategoryReport = () => {
       setFromDate(lastweek);
 
       setToDate(
-        moment()
-          .subtract(1, "weeks")
-          .endOf("weeks")
-          .format("YYYY-MM-DD")
+        moment().subtract(1, "weeks").endOf("weeks").format("YYYY-MM-DD")
       );
       let previouslastweek = moment(lastweek)
         .subtract(1, "days")
@@ -248,9 +239,7 @@ const CategoryReport = () => {
 
     //this week-----------------------------------------------------------------------
     if (value === 8) {
-      let ThisWeek = moment()
-        .startOf("weeks")
-        .format("YYYY-MM-DD");
+      let ThisWeek = moment().startOf("weeks").format("YYYY-MM-DD");
       setFromDate(ThisWeek);
       setToDate(moment().format("YYYY-MM-DD"));
       let previousthisweek = moment(ThisWeek)
@@ -267,9 +256,7 @@ const CategoryReport = () => {
       setpreviousStateChange(8);
     }
     if (value === 9) {
-      let ThisMonth = moment()
-        .startOf("month")
-        .format("YYYY-MM-DD");
+      let ThisMonth = moment().startOf("month").format("YYYY-MM-DD");
       setFromDate(ThisMonth);
       setToDate(moment().format("YYYY-MM-DD"));
       let previousthismont = moment(ThisMonth)
@@ -278,10 +265,7 @@ const CategoryReport = () => {
         .format("YYYY-MM-DD");
       setprevTodate(previousthismont);
       setprevFromdate(
-        moment()
-          .subtract(1, "month")
-          .startOf("month")
-          .format("YYYY-MM-DD")
+        moment().subtract(1, "month").startOf("month").format("YYYY-MM-DD")
       );
       setpreviousStateChange(9);
     }
@@ -294,7 +278,10 @@ const CategoryReport = () => {
     fetchData();
   };
   const options1 = [
-    (brand || []).map((item) => ({ value: `${item.brand}`, label: `${item.brand}` })),
+    (brand || []).map((item) => ({
+      value: `${item.brand}`,
+      label: `${item.brand}`,
+    })),
   ];
 
   let arrr = [];
@@ -302,10 +289,7 @@ const CategoryReport = () => {
   const brandHandler = (e) => {
     arrr = [];
     e.map((item) => {
-      return (
-        arrr.push(item.value)
-
-      )
+      return arrr.push(item.value);
     });
     setBrandName(arrr);
   };
@@ -321,10 +305,7 @@ const CategoryReport = () => {
   const VendorHandler = (e) => {
     vendorArray = [];
     e.map((item) => {
-      return (
-        vendorArray.push(item.value)
-
-      )
+      return vendorArray.push(item.value);
     });
     setVendorId(vendorArray);
   };
@@ -340,10 +321,7 @@ const CategoryReport = () => {
   const categoryHandler = (e) => {
     CategoryArray = [];
     e.map((item) => {
-      return (
-        CategoryArray.push(item.value)
-
-      )
+      return CategoryArray.push(item.value);
     });
     setCategoryId(CategoryArray);
   };
@@ -359,10 +337,7 @@ const CategoryReport = () => {
   const SearchHandler = (e) => {
     SearchArray = [];
     e.map((item) => {
-      return (
-        SearchArray.push(item.value)
-
-      )
+      return SearchArray.push(item.value);
     });
     setLocation(SearchArray);
   };
@@ -692,9 +667,9 @@ const CategoryReport = () => {
                   <div className="row  d-flex flex-column align-items-center">
                     <div className="d-flex align-items-baseline justify-content-between">
                       {CategoryError === "no_data" ||
-                        Categoryreport.total_sold_product_count === null ||
-                        Categoryreport.total_sold_product_count === undefined ||
-                        Categoryreport.total_sold_product_count === "" ? (
+                      Categoryreport.total_sold_product_count === null ||
+                      Categoryreport.total_sold_product_count === undefined ||
+                      Categoryreport.total_sold_product_count === "" ? (
                         <h3>0</h3>
                       ) : (
                         <h3>{Categoryreport.total_sold_product_count}</h3>
@@ -751,11 +726,12 @@ const CategoryReport = () => {
                       )}
 
                       {CategoryError === "no_data" ||
-                        PrevCategoryreport.prev_total_sold_product_count ===
+                      PrevCategoryreport.prev_total_sold_product_count ===
                         null ||
-                        PrevCategoryreport.prev_total_sold_product_count ===
+                      PrevCategoryreport.prev_total_sold_product_count ===
                         undefined ||
-                        PrevCategoryreport.prev_total_sold_product_count === "" ? (
+                      PrevCategoryreport.prev_total_sold_product_count ===
+                        "" ? (
                         <p className="h5"> 0</p>
                       ) : (
                         <p className="h5">
@@ -779,9 +755,9 @@ const CategoryReport = () => {
                   <div className="row  d-flex flex-column align-items-center">
                     <div className="d-flex align-items-baseline justify-content-between">
                       {CategoryError === "no_data" ||
-                        Categoryreport.total_sold_product_amount === null ||
-                        Categoryreport.total_sold_product_amount === undefined ||
-                        Categoryreport.total_sold_product_amount === "" ? (
+                      Categoryreport.total_sold_product_amount === null ||
+                      Categoryreport.total_sold_product_amount === undefined ||
+                      Categoryreport.total_sold_product_amount === "" ? (
                         <h3>₹0</h3>
                       ) : (
                         <h3>
@@ -838,11 +814,11 @@ const CategoryReport = () => {
                       )}
 
                       {CategoryError === "no_data" ||
-                        PrevCategoryreport.prev_total_sold_product_amount ===
+                      PrevCategoryreport.prev_total_sold_product_amount ===
                         null ||
-                        PrevCategoryreport.prev_total_sold_product_amount ===
+                      PrevCategoryreport.prev_total_sold_product_amount ===
                         undefined ||
-                        PrevCategoryreport.prev_total_sold_product_amount ===
+                      PrevCategoryreport.prev_total_sold_product_amount ===
                         "" ? (
                         <p className="h5"> ₹0</p>
                       ) : (
@@ -870,9 +846,9 @@ const CategoryReport = () => {
                   <div className="row  d-flex flex-column align-items-center">
                     <div className="d-flex align-items-baseline justify-content-between">
                       {CategoryError === "no_data" ||
-                        Categoryreport.order_count === null ||
-                        Categoryreport.order_count === undefined ||
-                        Categoryreport.order_count === "" ? (
+                      Categoryreport.order_count === null ||
+                      Categoryreport.order_count === undefined ||
+                      Categoryreport.order_count === "" ? (
                         <h3>0</h3>
                       ) : (
                         <h3>{Categoryreport.order_count}</h3>
@@ -929,9 +905,9 @@ const CategoryReport = () => {
                       )}
 
                       {CategoryError === "no_data" ||
-                        PrevCategoryreport.prev_order_count === null ||
-                        PrevCategoryreport.prev_order_count === undefined ||
-                        PrevCategoryreport.prev_order_count === "" ? (
+                      PrevCategoryreport.prev_order_count === null ||
+                      PrevCategoryreport.prev_order_count === undefined ||
+                      PrevCategoryreport.prev_order_count === "" ? (
                         <p className="h5"> 0</p>
                       ) : (
                         <p className="h5">
@@ -951,8 +927,8 @@ const CategoryReport = () => {
 
         {/* graph */}
         {Categoryreport.total_sold_product_count ||
-          Categoryreport.total_sold_product_amount ||
-          Categoryreport.order_count ? (
+        Categoryreport.total_sold_product_amount ||
+        Categoryreport.order_count ? (
           <HighchartsReact highcharts={Highcharts} options={options} />
         ) : null}
 
